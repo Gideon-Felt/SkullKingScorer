@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/SkullKingScorer/static/css/main.8a8980a8.chunk.css",
+    "main.js": "/SkullKingScorer/static/js/main.b8fc2d43.chunk.js",
+    "main.js.map": "/SkullKingScorer/static/js/main.b8fc2d43.chunk.js.map",
+    "runtime-main.js": "/SkullKingScorer/static/js/runtime-main.a7ab9d6e.js",
+    "runtime-main.js.map": "/SkullKingScorer/static/js/runtime-main.a7ab9d6e.js.map",
+    "static/js/2.2cecdcf2.chunk.js": "/SkullKingScorer/static/js/2.2cecdcf2.chunk.js",
+    "static/js/2.2cecdcf2.chunk.js.map": "/SkullKingScorer/static/js/2.2cecdcf2.chunk.js.map",
+    "index.html": "/SkullKingScorer/index.html",
+    "precache-manifest.680a14ef41060acceb8d498e1309e551.js": "/SkullKingScorer/precache-manifest.680a14ef41060acceb8d498e1309e551.js",
+    "service-worker.js": "/SkullKingScorer/service-worker.js",
+    "static/css/main.8a8980a8.chunk.css.map": "/SkullKingScorer/static/css/main.8a8980a8.chunk.css.map",
+    "static/js/2.2cecdcf2.chunk.js.LICENSE.txt": "/SkullKingScorer/static/js/2.2cecdcf2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a7ab9d6e.js",
+    "static/js/2.2cecdcf2.chunk.js",
+    "static/css/main.8a8980a8.chunk.css",
+    "static/js/main.b8fc2d43.chunk.js"
+  ]
+}
