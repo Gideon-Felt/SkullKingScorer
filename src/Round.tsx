@@ -72,6 +72,10 @@ const Round: FunctionComponent<RoundProps> = ( {cardCount, players, prevRoundSco
   let addToTrickCount = () => {
     setTricksPlayedCount(tricksPlayedCount + 1);
   }
+  let undoAddedTrickCount = () => {
+    setTricksPlayedCount(tricksPlayedCount - 1);
+    setRoundMode(RoundModes.Playing);
+  }
 
   let [krakenPlayed, setKrakenPlayed] = useState(false);
   let recordKrakenPlayed = () => {
@@ -84,7 +88,7 @@ const Round: FunctionComponent<RoundProps> = ( {cardCount, players, prevRoundSco
        <td key='cardCount'>{cardCount}{!bidsComplete && currentRound === cardCount && <div>Enter bids</div>}</td>
 
        {players.map(p => 
-       <PlayerRound key={p+cardCount} cardCount={cardCount} trickPlayedAction={addToTrickCount} tricksPlayed={tricksPlayedCount}
+       <PlayerRound key={p+cardCount} cardCount={cardCount} trickPlayedAction={addToTrickCount} undoTrickPlayedAction={undoAddedTrickCount} tricksPlayed={tricksPlayedCount}
         prevRoundScore={prevRoundScores && prevRoundScores[p] ? prevRoundScores[p] : 0}
         roundMode={roundMode} player={p} recordBid={recordBid} recordScore={recordPlayerScore}
         winning={winningPlayers.includes(p) && cardCount === currentRound - 1} startingPlayer={startingPlayer === p}

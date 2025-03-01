@@ -65,13 +65,14 @@ const Sheet: FunctionComponent<SheetProps> = ({players, deletePlayerAction, star
 
   return (
     <>
+    {currentRound === 1 ?<h4>click player name to highlight as starting player</h4>:''}
     <table>
       <thead>
         <tr>
         <th>Round</th>
         {
           players.map(p => 
-          <th key={p} title={currentRound === 1 ?'Click here to make this the starting player':''} onClick={() => selectStartingPlayer(p)}>{p}&nbsp; 
+          <th key={p} onClick={() => selectStartingPlayer(p)}>{p}&nbsp;
           { currentRound === 1 && <button onClick={() => {deletePlayerAction(p)}}>&#10007;</button>}
           </th>)
         }

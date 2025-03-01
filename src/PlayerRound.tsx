@@ -11,6 +11,7 @@ interface PlayerRoundProps {
   recordBid: (player: string, bid: number) => void;
   recordScore: (player: string, score: number) => void;
   trickPlayedAction: () => void;
+  undoTrickPlayedAction: () => void;
   tricksPlayed: number;
   winning: boolean;
   startingPlayer: boolean;
@@ -40,7 +41,7 @@ const calculatePlayerScoreForRound = (cardsInRound: number, tricksBid: number, t
 }
 
 const PlayerRound: FunctionComponent<PlayerRoundProps> = ( {cardCount, prevRoundScore, roundMode, player,
-  recordBid, recordScore, trickPlayedAction, tricksPlayed, winning, startingPlayer, legendaryExpansionInPlay } ) => {
+  recordBid, recordScore, trickPlayedAction, undoTrickPlayedAction, tricksPlayed, winning, startingPlayer, legendaryExpansionInPlay } ) => {
   let [bid, setBid] = useState(0);
   let [tricks, setTricks] = useState(0);
   let [bonus, setBonus] = useState(0);
@@ -68,6 +69,11 @@ const PlayerRound: FunctionComponent<PlayerRoundProps> = ( {cardCount, prevRound
   const trickPlayed = (): void => {
     setTricks(tricks + 1);
     trickPlayedAction();
+  };
+
+  const undoTrickPlayed = (): void => {
+    setTricks(tricks - 1);
+    undoTrickPlayedAction();
   };
 
   const bonusEntered = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -99,11 +105,18 @@ const PlayerRound: FunctionComponent<PlayerRoundProps> = ( {cardCount, prevRound
         { bet > 0 && <div>Bet: {bet}</div>}
         { roundMode === RoundModes.Playing &&
           <div>
-            { tricksPlayed < cardCount &&
-             <button onClick={() => {trickPlayed()}}>Add Trick</button>
+            {tricksPlayed < cardCount &&
+                <button onClick={() => {
+                  trickPlayed()
+                }}>Add Trick</button>
             }
-            { legendaryExpansionInPlay && tricks > 0 &&
-            <div className='dropdown'>
+            {tricks > 0 &&
+                <button onClick={() => {
+                  undoTrickPlayed()
+                }}>Undo Trick</button>
+            }
+            {legendaryExpansionInPlay && tricks > 0 &&
+                <div className='dropdown'>
               <button className='dropdownbutton'>
                 <img style={{backgroundColor: 'white'}} alt={'Pirate played'} width={16} src={process.env.PUBLIC_URL+'/Skull-And-Crossbones-Remix.svg'}/>
               </button>

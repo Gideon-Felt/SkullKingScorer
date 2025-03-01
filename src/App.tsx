@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Sheet from './Sheet';
 
@@ -17,6 +17,18 @@ function App() {
   const newPlayerNameChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPlayerName(event.target.value);
   }
+
+  /* prevent accidental page refresh mid-game */
+  useEffect(() => {
+    window.addEventListener("beforeunload", alertUser);
+    return () => {
+      window.removeEventListener("beforeunload", alertUser);
+    };
+  }, []);
+  const alertUser = (e: WindowEventMap['beforeunload']) => {
+    e.preventDefault();
+    e.returnValue = "";
+  };
 
   const addPlayer = () => {
     players.push(newPlayerName);
