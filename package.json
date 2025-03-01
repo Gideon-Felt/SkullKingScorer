@@ -1,8 +1,8 @@
 {
   "name": "skscorer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
-  "homepage": "http://craigfis.github.io/SkullKingScorer",
+  "homepage": "http://gideonfelt.github.io/SkullKingScorer",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -41,6 +41,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.2.0"
+    "gh-pages": "6.3.0"
   }
 }
